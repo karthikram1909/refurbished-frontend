@@ -3,8 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { PhoneCard } from '@/components/PhoneCard';
 import { EmptyState } from '@/components/EmptyState';
 import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
 import {
   Select,
@@ -161,13 +159,7 @@ export const PhoneListing = () => {
     );
   };
 
-  const handleConditionToggle = (condition: string) => {
-    setSelectedConditions((prev) =>
-      prev.includes(condition)
-        ? prev.filter((c) => c !== condition)
-        : [...prev, condition]
-    );
-  };
+
 
   const handleStorageToggle = (storage: string) => {
     setSelectedStorage((prev) =>

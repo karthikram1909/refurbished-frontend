@@ -22,9 +22,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { StatusBadge } from '@/components/StatusBadge';
-import { Eye, CheckCircle, Truck, Package as PackageIcon } from 'lucide-react';
+import { Eye, CheckCircle, Package as PackageIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { Separator } from '@/components/ui/separator';
 import { getAdminBookings, updateBookingStatus } from '@/lib/api';
 
 export const OrdersManagement = () => {
