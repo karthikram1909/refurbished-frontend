@@ -7,12 +7,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5001',
+        target: 'https://refurbished-backend-production.up.railway.app',
         changeOrigin: true,
+        secure: false,
       },
       '/uploads': {
-        target: 'http://localhost:5001',
+        target: 'https://refurbished-backend-production.up.railway.app',
         changeOrigin: true,
+        secure: false,
       }
     }
   },

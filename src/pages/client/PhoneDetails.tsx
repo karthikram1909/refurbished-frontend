@@ -16,6 +16,7 @@ import {
 import { StatusBadge } from '@/components/StatusBadge';
 import { useToast } from '@/hooks/use-toast';
 import { getPhones, getPhone } from '@/lib/api';
+import { BASE_URL } from '@/lib/config';
 import { Phone } from '@/mockData/data';
 
     // Helper to map backend data to frontend Phone interface
@@ -28,8 +29,8 @@ import { Phone } from '@/mockData/data';
         condition: 'Good',
         price: p.price,
         originalPrice: p.price,
-        image: p.image || '/placeholder.png',
-        images: [p.image || '/placeholder.png'],
+        image: (p.image && !p.image.startsWith('http') && !p.image.startsWith('data:')) ? `${BASE_URL}${p.image}` : (p.image || '/placeholder.png'),
+        images: [(p.image && !p.image.startsWith('http') && !p.image.startsWith('data:')) ? `${BASE_URL}${p.image}` : (p.image || '/placeholder.png')],
         stock: p.isSold ? 0 : 1,
         warranty: p.warranty || '',
         specifications: {

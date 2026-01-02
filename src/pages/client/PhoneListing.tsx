@@ -16,6 +16,7 @@ import {
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Filter, SlidersHorizontal, Smartphone } from 'lucide-react';
 import { getPhones } from '@/lib/api';
+import { BASE_URL } from '@/lib/config';
 import { Phone } from '@/mockData/data';
 
 export const PhoneListing = () => {
@@ -49,8 +50,8 @@ export const PhoneListing = () => {
                 condition: 'Good', // Default
                 price: p.price,
                 originalPrice: p.price,
-                image: p.image || '/placeholder.png',
-                images: [p.image || '/placeholder.png'],
+                image: (p.image && !p.image.startsWith('http') && !p.image.startsWith('data:')) ? `${BASE_URL}${p.image}` : (p.image || '/placeholder.png'),
+                images: [(p.image && !p.image.startsWith('http') && !p.image.startsWith('data:')) ? `${BASE_URL}${p.image}` : (p.image || '/placeholder.png')],
                 stock: p.isSold ? 0 : 1,
                 warranty: p.warranty || '',
                 specifications: {

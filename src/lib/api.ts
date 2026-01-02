@@ -1,7 +1,11 @@
 import axios from 'axios';
+import { BASE_URL } from './config';
+
+export { BASE_URL };
 
 const api = axios.create({
-    baseURL: '/api',
+    // baseURL: '/api', // Local development via proxy
+    baseURL: `${BASE_URL}/api`, // Production backend
     headers: {
         'Content-Type': 'application/json',
     },
